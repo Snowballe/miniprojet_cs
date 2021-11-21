@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "miniprojet_potcommun", "miniprojet_potcommun\miniprojet_potcommun.csproj", "{ADAE7591-66AD-4A9A-9C35-C15E8372D566}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADAE7591-66AD-4A9A-9C35-C15E8372D566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADAE7591-66AD-4A9A-9C35-C15E8372D566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADAE7591-66AD-4A9A-9C35-C15E8372D566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAE7591-66AD-4A9A-9C35-C15E8372D566}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
