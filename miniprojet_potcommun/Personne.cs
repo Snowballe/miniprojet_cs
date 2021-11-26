@@ -8,7 +8,17 @@ namespace miniprojet_potcommun
 {
     class Personne
     {
-        public string prenom { get; set; }
-        public int argentDepense { get; set; }
+        public Personne(string prenom, int argentDepense)
+        {
+            m_Prenom = prenom;
+            m_ArgentDepense = argentDepense;
+            m_ArgentRecu = 0;
+        }
+
+        public string m_Prenom { get; set; }
+        public int m_ArgentDepense { get; set; }
+        public int m_ArgentRecu { get; set; }
+
     }
+    
 }
