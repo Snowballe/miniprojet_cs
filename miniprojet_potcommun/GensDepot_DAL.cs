@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace miniprojet_potcommun
 {
-    class GensDepot_DAL
+     public class GensDepot_DAL : Depot_DAL<Gens_DAL>
     {
         public override List<Gens_DAL> GetAll()
         {
@@ -15,13 +16,13 @@ namespace miniprojet_potcommun
             commande.CommandText = "select ID, dateCreation, dateModification from Polygones";
             var reader = commande.ExecuteReader();
 
-            var depotPoint = new PointDepot_DAL();
+            var depotPoint = new GensDepot_DAL();
 
-            var listePolygone = new List<Polygone_DAL>();
+            var listePolygone = new List<Gens_DAL>();
 
             while (reader.Read())
             {
-                var points = depotPoint.GetAllByIDPolygone(reader.GetInt32(0));
+                var points = depotPoint.GetAllByIDGens(reader.GetInt32(0));
 
                 var p = new Polygone_DAL(reader.GetInt32(0),
                                         reader.GetDateTime(1),
@@ -31,51 +32,51 @@ namespace miniprojet_potcommun
                 listePolygone.Add(p);
             }
 
-            DetruireConnexionEtCommande();
+            dbClose();
 
             return listePolygone;
         }
 
-        public override Polygone_DAL GetByID(int ID)
+        public override Gens_DAL GetByID(int ID)
         {
-            CreerConnexionEtCommande();
+            dbConnect();
 
             commande.CommandText = "select ID, dateCreation, dateModification from Polygones where ID=@ID";
             commande.Parameters.Add(new SqlParameter("@ID", ID));
             var reader = commande.ExecuteReader();
 
-            var depotPoint = new PointDepot_DAL();
+            var depotPoint = new Gens_DAL();
 
-            Polygone_DAL p;
+            Gens_DAL p;
 
             if (reader.Read())
             {
-                var points = depotPoint.GetAllByIDPolygone(reader.GetInt32(0));
+                var points = depotPoint.GetAllByIDGens(reader.GetInt32(0));
 
-                p = new Polygone_DAL(reader.GetInt32(0),
+                p = new Gens_DAL(reader.GetInt32(0),
                                         reader.GetDateTime(1),
                                         reader.GetSqlDateTime(2).IsNull ? null : reader.GetDateTime(2),
                                         points);
             }
             else
             {
-                throw new Exception($"Pas de polygone avec l'ID {ID}");
+                throw new Exception($"Pas de gens avec l'ID {ID}");
             }
 
-            DetruireConnexionEtCommande();
+            dbClose();
 
             return p;
         }
 
-        public override Polygone_DAL Insert(Polygone_DAL poly)
+        public override Gens_DAL Insert(Gens_DAL gen)
         {
-            CreerConnexionEtCommande();
+            dbConnect();
 
             commande.CommandText = "insert into Polygones(dateCreation)"
                                     + " values (GetDate()); select scope_identity()";
             var ID = Convert.ToInt32((decimal)commande.ExecuteScalar());
 
-            poly.DateCreation = GetByID(ID).DateCreation;
+            gen.DateCreation = GetByID(ID).DateCreation;
 
             DetruireConnexionEtCommande();
 

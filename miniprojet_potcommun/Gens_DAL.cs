@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace miniprojet_potcommun
 {
-    class Gens_DAL
+    public class Gens_DAL
     {
         public int ID { get; set; }
 
