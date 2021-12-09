@@ -121,9 +121,9 @@
     <Compile Include="Depot_DAL.cs" />
     <Compile Include="GensDepot_DAL.cs" />
     <Compile Include="Gens_DAL.cs" />
+    <Compile Include="Idepot.cs" />
     <Compile Include="PotDepot_DAL.cs" />
     <Compile Include="Pot_DAL.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

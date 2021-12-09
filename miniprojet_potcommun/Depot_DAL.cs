@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace miniprojet_potcommun
 {
-    class Depot_DAL
-    {
-        public abstract class Depot_DAL<Type_DAL> : IDepot_DAL<Type_DAL>
+    
+        public abstract class Depot_DAL<Type_DAL> : Idepot<Type_DAL>
         {
             public string ChaineDeConnexion { get; set; }
 
@@ -53,5 +52,5 @@ namespace miniprojet_potcommun
             public abstract Type_DAL Update(Type_DAL item);
             #endregion
         }
-    }
+    
 }

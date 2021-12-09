@@ -15,16 +15,11 @@ namespace miniprojet_potcommun
 
         public string m_prenom { get; set; }
 
-        public double m_Argent_depense { get; set; }
+        public Gens_DAL(int id, DateTime? created_at, DateTime? updated_at, string prenom)
+            => (ID, m_created_at, m_updated_at, m_prenom) = (id, created_at, updated_at, prenom);
 
-        public Gens_DAL(int id, DateTime? created_at, DateTime? updated_at, string prenom, double argent)
-            => (ID, m_created_at, m_updated_at, m_prenom, m_Argent_depense) = (id, created_at, updated_at, prenom, argent);
-
-        public Gens_DAL(int id, DateTime? created_at, string prenom, double argent)
-            => (ID, m_created_at, m_prenom, m_Argent_depense) = (id, created_at, prenom, argent);
-
-        public Gens_DAL(string prenom, double argent)
-            => (m_prenom, m_Argent_depense) = (prenom, argent);
+        public Gens_DAL(int id, DateTime? created_at, string prenom)
+            => (ID, m_created_at, m_prenom) = (id, created_at, prenom);
 
         //public List<Point_DAL> Points { get; set; }
 
