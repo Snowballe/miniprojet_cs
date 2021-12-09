@@ -9,7 +9,7 @@ namespace miniprojet_potcommun
     public class Gens_DAL
     {
         public int ID { get; set; }
-
+    
         public DateTime? m_created_at { get; set; }
         public DateTime? m_updated_at { get; set; }
 
